@@ -1,4 +1,4 @@
 struct elem {
-	int data;
-	elem* next;
+	int dane;
+	elem* nast;
 };

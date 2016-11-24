@@ -1,6 +1,6 @@
 void insert(int x, int i, elem* &lista)
 {
-  if(i > 1) // if valid element index
+  if(i >= 1) // if valid element index
   {
     if (i == 1) // if first list element;
     {
