@@ -5,21 +5,21 @@ bool qIsEmpty(elem* start, elem* end) {
 void add(elem* &start, elem* &end, int x) {
 	if(qIsEmpty(start, end)) {
 		start = new elem;
-		start->data = x;
-		start->next = 0;
+		start->dane = x;
+		start->nast = 0;
 		end = start;
 	}
 	else {
 		elem* new_elem = new elem;
-		new_elem->data = x;
-		new_elem->next = 0;
-		end->next = new_elem;
+		new_elem->dane = x;
+		new_elem->nast = 0;
+		end->nast = new_elem;
 		end = new_elem;
 	}
 }
 
 int qPeek(elem* start) {
-	return start == 0 ? -1 : start->data;
+	return start == 0 ? -1 : start->dane;
 }
 
 int next(elem* &start, elem* &end) {
@@ -27,9 +27,9 @@ int next(elem* &start, elem* &end) {
 	if(qIsEmpty(start, end))
 		result = -1;
 	else {
-		result = start->data;
+		result = start->dane;
 		delete start;
-		start = start->next;
+		start = start->nast;
 	}
 	return result;
 }

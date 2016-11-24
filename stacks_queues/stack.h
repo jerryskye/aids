@@ -5,19 +5,19 @@ bool sIsEmpty(elem* stack) {
 void push(elem* &stack, int x) {
 	if(sIsEmpty(stack)) {
 		stack = new elem;
-		stack->data = x;
-		stack->next = 0;
+		stack->dane = x;
+		stack->nast = 0;
 	}
 	else {
 		elem * new_elem = new elem;
-		new_elem->data = x;
-		new_elem->next = stack;
+		new_elem->dane = x;
+		new_elem->nast = stack;
 		stack = new_elem;
 	}
 }
 
 int sPeek(elem* stack) {
-	return sIsEmpty(stack)? -1 : stack->data;
+	return sIsEmpty(stack)? -1 : stack->dane;
 }
 
 int pop(elem* &stack) {
@@ -25,9 +25,9 @@ int pop(elem* &stack) {
 	if(sIsEmpty(stack))
 		result = -1;
 	else {
-		result = stack->data;
+		result = stack->dane;
 		delete stack;
-		stack = stack->next;
+		stack = stack->nast;
 	}
 	return result;
 }
