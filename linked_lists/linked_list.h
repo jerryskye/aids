@@ -96,22 +96,32 @@ void print(elem* lista) {
 	}
 }
 
-void print_reversed_with_stack(elem* list) {
+void print_reversed_with_stack(elem* lista) {
 	elem* stack = 0;
-	for(int i = 1; i <= size(list); ++i)
-		push(stack, read(i, list));
+	int n = size(lista);
+	for(int i = 1; i <= n; ++i)
+		push(stack, read(i, lista));
 	while(stack != 0)
 		cout << pop(stack) << endl;
 }
 
-void print_reversed(elem* list) {
-	for(int i = size(list); i > 0; --i)
-		cout << read(i, list) << endl;
+void print_reversed(elem* lista) {
+	int n = size(lista);
+	for(int i = n; i > 0; --i)
+		cout << read(i, lista) << endl;
+}
+
+void print_reversed_rec(elem* lista) {
+	if(lista) {
+		print_reversed_rec(lista->nast);
+		cout << lista->dane << endl;
+	}
 }
 
 void destroy(elem* &lista) {
-	for(int i = size(lista); i > 0; --i)
-		remove(i, lista);
+	int n = size(lista);
+	for(int i = n; i > 0; --i)
+		remove(1, lista);
 }
 
 elem* search(int x, elem* lista) {
@@ -121,4 +131,8 @@ elem* search(int x, elem* lista) {
 		lista = lista->nast;
 	}
 	return 0;
+}
+
+elem* search_rec(int x, elem* lista) {
+	return lista? (lista->dane == x)? lista : search(x, lista->nast) : 0;
 }
