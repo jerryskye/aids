@@ -82,6 +82,10 @@ int size(elem* lista) {
 	return wynik;
 }
 
+int size_rec(elem* lista) {
+	return lista? 1 + size(lista->nast) : 0;
+}
+
 void print(elem* lista) {
 	if(lista == 0)
 		cout << "Lista jest pusta.\n";
