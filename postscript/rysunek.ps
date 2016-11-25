@@ -1,0 +1,19 @@
+/rysuj {
+	/d exch def /y exch def /x exch def
+	/d2 d 5 idiv def /y2 y d add def
+	/x2 x d add def
+
+	d 1 gt {
+		x y moveto x y2 lineto stroke
+		x y2 moveto x2 y2 lineto stroke
+		x2 y2 moveto x2 y lineto stroke
+		x2 y moveto x y lineto stroke
+		x d2 add y d2 add d2
+		x d2 add y2 d2 sub d2 sub d2
+		x2 d2 sub d2 sub y2 d2 sub d2 sub d2
+		x2 d2 sub d2 sub y d2 add d2
+		rysuj rysuj rysuj rysuj
+	} if
+} def
+
+0 0 125 rysuj showpage
