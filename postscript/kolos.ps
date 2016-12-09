@@ -1,0 +1,19 @@
+/rysuj {
+	/r exch def
+	/y exch def
+	/x exch def
+	r 15 gt {
+		x y r 0 360 arc stroke
+		/r2 r 2 idiv def
+		/gy y r r2 add add def
+		/dy y r r2 add sub def
+		/px x r r2 add add def
+		/lx x r r2 add sub def
+		x gy r2 x dy r2
+		px y r2 lx y r2
+		rysuj rysuj rysuj rysuj
+	} if
+} def
+
+320 320 80 rysuj
+showpage
